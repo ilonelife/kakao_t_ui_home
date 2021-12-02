@@ -162,16 +162,22 @@ class HomeScreen extends StatelessWidget {
               controller: controller,
               children: <Widget>[
                 Ad(
-                  title: '제목111',
+                  title: '그러게 일찍 ',
+                  body: '기왕 늦은거 편하게 택시타고 가',
                   color: Colors.red,
+                  image: 'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
                 ),
                 Ad(
-                  title: '제목222',
+                  title: '2번째 제목 ',
+                  body: '기왕 늦은거 편하게 택시타고 가',
                   color: Colors.blue,
+                  image: 'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
                 ),
                 Ad(
-                  title: '제목333',
+                  title: '3번째 제목  ',
+                  body: '기왕 늦은거 편하게 택시타고 가',
                   color: Colors.green,
+                  image: 'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
                 ),
               ],
             ),
