@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kakao_t_ui_exam/ui/home/widgets/ad.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget _buildBody() {
+    PageController controller = PageController(initialPage: 0);
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -91,7 +93,9 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 30,),
+          SizedBox(
+            height: 30,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -143,8 +147,34 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(width: 80, height: 80,),
+              SizedBox(
+                width: 80,
+                height: 80,
+              ),
             ],
+          ),
+          SizedBox(
+            height: 100,
+            child: PageView(
+              /// [PageView.scrollDirection] defaults to [Axis.horizontal].
+              /// Use [Axis.vertical] to scroll vertically.
+              scrollDirection: Axis.horizontal,
+              controller: controller,
+              children: <Widget>[
+                Ad(
+                  title: '제목111',
+                  color: Colors.red,
+                ),
+                Ad(
+                  title: '제목222',
+                  color: Colors.blue,
+                ),
+                Ad(
+                  title: '제목333',
+                  color: Colors.green,
+                ),
+              ],
+            ),
           ),
         ],
       ),
