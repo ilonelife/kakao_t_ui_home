@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:kakao_t_ui_exam/model/ad.dart';
 
-class Ad extends StatelessWidget {
-  final String title;
-  final String body;
-  final Color color;
-  final String image;
+class AdView extends StatelessWidget {
+  final Ad ad;
 
-  const Ad({
+  const AdView({
     Key key,
-    this.title,
-    this.body,
-    this.color,
-    this.image,
+    this.ad,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 4,
-      color: color,
+      color: ad.color,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.0),
       ),
@@ -34,17 +29,17 @@ class Ad extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      ad.title,
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                     Text(
-                      body,
+                      ad.body,
                     ),
                   ],
                 ),
               ),
               Image.network(
-                image,
+                ad.image,
                 height: 200,
               )
             ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kakao_t_ui_exam/ui/home/widgets/ad.dart';
+import 'package:kakao_t_ui_exam/data/fake_data.dart';
+import 'package:kakao_t_ui_exam/ui/home/widgets/ad_view.dart';
 import 'package:kakao_t_ui_exam/ui/home/widgets/menu_button.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -88,26 +89,14 @@ class HomeScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               controller: controller,
               children: <Widget>[
-                Ad(
-                  title: '그러게 일찍 ',
-                  body: '기왕 늦은거 편하게 택시타고 가',
-                  color: Colors.red,
-                  image:
-                      'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+                AdView(
+                  ad: fakeAds[0],
                 ),
-                Ad(
-                  title: '2번째 제목 ',
-                  body: '기왕 늦은거 편하게 택시타고 가',
-                  color: Colors.blue,
-                  image:
-                      'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+                AdView(
+                  ad: fakeAds[1],
                 ),
-                Ad(
-                  title: '3번째 제목  ',
-                  body: '기왕 늦은거 편하게 택시타고 가',
-                  color: Colors.green,
-                  image:
-                      'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+                AdView(
+                  ad: fakeAds[2],
                 ),
               ],
             ),
