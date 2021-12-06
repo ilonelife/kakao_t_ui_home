@@ -27,11 +27,20 @@ class HomeScreen extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: ListView(
         children: [
-          ..._buildMenu(),
+          _buildMenu2(),
           _buildAds(controller),
           _buildNotice(),
         ],
       ),
+    );
+  }
+
+  Widget _buildMenu2() {
+    return GridView.count(
+      physics: NeverScrollableScrollPhysics(),
+      crossAxisCount: 4,
+      shrinkWrap: true,
+      children: fakeMenus.map((e) => Text(e.title)).toList(),
     );
   }
 
@@ -122,8 +131,15 @@ class HomeScreen extends StatelessWidget {
   Widget _buildNotice() {
     return Column(
   //    shrinkWrap: true,  // 스크롤이 않되고, size 가 있는 column 처러 동작
-      children: List.generate(50, (index) => Text('공지 $index')),
-
+      children: List.generate(50, (index) => ListTile(
+        leading: Icon(
+          Icons.notifications_outlined,
+        ),
+        title: Text('공지 $index'),
+        trailing: Icon(
+          Icons.navigate_next_outlined,
+        ),
+      )),
     );
   }
 }

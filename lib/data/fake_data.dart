@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kakao_t_ui_exam/model/ad.dart';
+import 'package:kakao_t_ui_exam/model/menu.dart';
+
+final List<Menu> fakeMenus =
+    List.generate(7, (index) => Menu(
+      title: '택시',
+      imageUrl: 'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+    ));
+
 
 final List<Ad> fakeAds = [
   Ad(
