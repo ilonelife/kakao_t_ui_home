@@ -27,98 +27,104 @@ class HomeScreen extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              MenuButton(
-                image_url:
-                    'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-                sub_text: 'BMW',
-              ),
-              MenuButton(
-                image_url:
-                    'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-                sub_text: '벤츠',
-              ),
-              MenuButton(
-                image_url:
-                    'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-                sub_text: '아우디',
-              ),
-              MenuButton(
-                image_url:
-                    'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-                sub_text: '폭스바겐',
-              ),
-            ],
+          ..._buildMenu(),
+          _buildAds(controller),
+          _buildNotice(),
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _buildMenu() {
+    return [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          MenuButton(
+            image_url:
+            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+            sub_text: 'BMW',
           ),
-          SizedBox(
-            height: 16,
+          MenuButton(
+            image_url:
+            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+            sub_text: '벤츠',
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              MenuButton(
-                image_url:
-                    'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-                sub_text: '제네시스',
-              ),
-              MenuButton(
-                image_url:
-                    'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-                sub_text: '포르쉐',
-              ),
-              MenuButton(
-                image_url:
-                    'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-                sub_text: '부가티',
-              ),
-              SizedBox(
-                width: 80,
-                height: 80,
-              ),
-            ],
+          MenuButton(
+            image_url:
+            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+            sub_text: '아우디',
           ),
-          SizedBox(
-            height: 16,
-          ),
-          SizedBox(
-            height: 100,
-            child: PageView(
-              /// [PageView.scrollDirection] defaults to [Axis.horizontal].
-              /// Use [Axis.vertical] to scroll vertically.
-              scrollDirection: Axis.horizontal,
-              controller: controller,
-              children: fakeAds.map((Ad e) => AdView(ad: e)).toList(),
-           //   <Widget>[
-              //  AdView(
-               //   ad: fakeAds[0],
-                  // title: '그러게 일찍 들어가 ',
-                  // body: '기왕 늦은거 편하게 택시타고 가',
-                  // color: Colors.red,
-                  // image:
-                  //     'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-          //      ),
-              //  AdView(
-                //  ad: fakeAds[1],
-                  // title: '2ㅓㅓㅓㅓ번째 제목 ',
-                  // body: '기왕 늦은거 편하게 택시타고 가',
-                  // color: Colors.blue,
-                  // image:
-                  //     'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-            //    ),
-              //  AdView(
-               //   ad: fakeAds[2],
-                  // title: '3번째 제목  ',
-                  // body: '기왕 늦은거 편하게 택시타고 가',
-                  // color: Colors.green,
-                  // image:
-                  //     'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-              //  ),
-            //  ],
-            ),
+          MenuButton(
+            image_url:
+            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+            sub_text: '폭스바겐',
           ),
         ],
+      ),
+      SizedBox(
+        height: 16,
+      ),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          MenuButton(
+            image_url:
+            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+            sub_text: '제네시스',
+          ),
+          MenuButton(
+            image_url:
+            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+            sub_text: '포르쉐',
+          ),
+          MenuButton(
+            image_url:
+            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+            sub_text: '부가티',
+          ),
+          SizedBox(
+            width: 80,
+            height: 80,
+          ),
+        ],
+      ),
+      SizedBox(
+        height: 16,
+      ),
+    ];
+  }
+
+  Widget _buildAds(PageController controller) {
+    return SizedBox(
+          height: 100,
+          child: PageView(
+            /// [PageView.scrollDirection] defaults to [Axis.horizontal].
+            /// Use [Axis.vertical] to scroll vertically.
+            scrollDirection: Axis.horizontal,
+            controller: controller,
+            children: fakeAds.map((Ad e) => AdView(ad: e)).toList(),
+           // <Widget>[
+           //   AdView(
+           //     ad: fakeAds[0],
+           //   ),
+           //   AdView(
+           //     ad: fakeAds[1],
+           //   ),
+           //   AdView(
+           //     ad: fakeAds[2],
+           //   ),
+           // ],
+          ),
+        );
+  }
+
+  Widget _buildNotice() {
+    return Expanded(
+      child: ListView(
+        shrinkWrap: true,
+        children: List.generate(50, (index) => Text('공지 $index')),
+
       ),
     );
   }
