@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kakao_t_ui_exam/data/fake_data.dart';
+import 'package:kakao_t_ui_exam/model/ad.dart';
 import 'package:kakao_t_ui_exam/ui/home/widgets/ad_view.dart';
 import 'package:kakao_t_ui_exam/ui/home/widgets/menu_button.dart';
 
@@ -88,17 +89,33 @@ class HomeScreen extends StatelessWidget {
               /// Use [Axis.vertical] to scroll vertically.
               scrollDirection: Axis.horizontal,
               controller: controller,
-              children: <Widget>[
-                AdView(
-                  ad: fakeAds[0],
-                ),
-                AdView(
-                  ad: fakeAds[1],
-                ),
-                AdView(
-                  ad: fakeAds[2],
-                ),
-              ],
+              children: fakeAds.map((Ad e) => AdView(ad: e)).toList(),
+           //   <Widget>[
+              //  AdView(
+               //   ad: fakeAds[0],
+                  // title: '그러게 일찍 들어가 ',
+                  // body: '기왕 늦은거 편하게 택시타고 가',
+                  // color: Colors.red,
+                  // image:
+                  //     'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+          //      ),
+              //  AdView(
+                //  ad: fakeAds[1],
+                  // title: '2ㅓㅓㅓㅓ번째 제목 ',
+                  // body: '기왕 늦은거 편하게 택시타고 가',
+                  // color: Colors.blue,
+                  // image:
+                  //     'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+            //    ),
+              //  AdView(
+               //   ad: fakeAds[2],
+                  // title: '3번째 제목  ',
+                  // body: '기왕 늦은거 편하게 택시타고 가',
+                  // color: Colors.green,
+                  // image:
+                  //     'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
+              //  ),
+            //  ],
             ),
           ),
         ],
