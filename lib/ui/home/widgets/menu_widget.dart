@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:kakao_t_ui_exam/model/menu.dart';
 
@@ -11,11 +10,15 @@ class MenuWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.network(
-            menu.imageUrl,
-            width: 70,
-            height: 60,
-            fit: BoxFit.cover),
+        Stack(
+          children: [
+            Image.network(menu.imageUrl,
+                width: 70, height: 60, fit: BoxFit.cover),
+            if (menu.isFavorite) Positioned(
+                right: 0, bottom: 5,
+                child: Icon(Icons.star_outlined, color: Colors.yellow,))
+          ],
+        ),
         // SizedBox(
         //   height: 20,
         // ),
@@ -27,5 +30,3 @@ class MenuWidget extends StatelessWidget {
     );
   }
 }
-
-
