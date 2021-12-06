@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
               MenuButton(
                 image_url:
                     'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-                sub_text: '미니',
+                sub_text: '제네시스',
               ),
               MenuButton(
                 image_url:
