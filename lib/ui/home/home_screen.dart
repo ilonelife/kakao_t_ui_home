@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kakao_t_ui_exam/data/fake_data.dart';
 import 'package:kakao_t_ui_exam/model/ad.dart';
+import 'package:kakao_t_ui_exam/model/menu.dart';
 import 'package:kakao_t_ui_exam/ui/home/widgets/ad_view.dart';
 import 'package:kakao_t_ui_exam/ui/home/widgets/menu_button.dart';
+import 'package:kakao_t_ui_exam/ui/home/widgets/menu_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -27,7 +29,7 @@ class HomeScreen extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: ListView(
         children: [
-          _buildMenu2(),
+          _buildMenu(),
           _buildAds(controller),
           _buildNotice(),
         ],
@@ -35,73 +37,14 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMenu2() {
+  Widget _buildMenu() {
     return GridView.count(
+      childAspectRatio: 1 / 1.3,
       physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 4,
       shrinkWrap: true,
-      children: fakeMenus.map((e) => Text(e.title)).toList(),
+      children: fakeMenus.map((Menu e) => MenuWidget(menu: e)).toList(), //Text(e.title)).toList(),
     );
-  }
-
-  List<Widget> _buildMenu() {
-    return [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          MenuButton(
-            image_url:
-            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-            sub_text: 'BMW',
-          ),
-          MenuButton(
-            image_url:
-            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-            sub_text: '벤츠',
-          ),
-          MenuButton(
-            image_url:
-            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-            sub_text: '아우디',
-          ),
-          MenuButton(
-            image_url:
-            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-            sub_text: '폭스바겐',
-          ),
-        ],
-      ),
-      SizedBox(
-        height: 16,
-      ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          MenuButton(
-            image_url:
-            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-            sub_text: '제네시스',
-          ),
-          MenuButton(
-            image_url:
-            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-            sub_text: '포르쉐',
-          ),
-          MenuButton(
-            image_url:
-            'https://cdn.pixabay.com/photo/2021/09/08/15/24/couple-6607143_960_720.jpg',
-            sub_text: '부가티',
-          ),
-          SizedBox(
-            width: 80,
-            height: 80,
-          ),
-        ],
-      ),
-      SizedBox(
-        height: 16,
-      ),
-    ];
   }
 
   Widget _buildAds(PageController controller) {
@@ -113,17 +56,6 @@ class HomeScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             controller: controller,
             children: fakeAds.map((Ad e) => AdView(ad: e)).toList(),
-           // <Widget>[
-           //   AdView(
-           //     ad: fakeAds[0],
-           //   ),
-           //   AdView(
-           //     ad: fakeAds[1],
-           //   ),
-           //   AdView(
-           //     ad: fakeAds[2],
-           //   ),
-           // ],
           ),
         );
   }
