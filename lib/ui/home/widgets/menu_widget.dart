@@ -16,7 +16,10 @@ class MenuWidget extends StatelessWidget {
                 width: 70, height: 60, fit: BoxFit.cover),
             if (menu.isFavorite) Positioned(
                 right: 0, bottom: 5,
-                child: Icon(Icons.star_outlined, color: Colors.yellow,))
+                child: Icon(Icons.star_outlined, color: Colors.yellow,)),
+            if (!menu.isFavorite) Positioned(
+                right: 0, bottom: 5,
+                child: Icon(Icons.star_outlined, color: Colors.redAccent,)),
           ],
         ),
         // SizedBox(
