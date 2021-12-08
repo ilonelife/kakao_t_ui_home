@@ -50,7 +50,7 @@ class KakaoTScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => DetailScreen(
-                  title: menu.title,
+                  menu: menu,
                 )),
               );
             },
