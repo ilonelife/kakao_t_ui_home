@@ -13,7 +13,9 @@ class DetailScreen extends StatelessWidget {
           title: Text(menu.title),
         ),
         body: Center(
-          child: SizedBox(width: 300, child: Image.network(menu.imageUrl)),
+          child: Hero(
+              tag: menu.imageUrl,
+              child: Image.network(menu.imageUrl)),
         ));
   }
 }
