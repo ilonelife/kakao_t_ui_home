@@ -80,7 +80,7 @@ class _BmiCalcHomeScreenState extends State<BmiCalcHomeScreen> {
                       );
                     }
                   },
-                  child: Text('계산'),
+                  child: Text('계산하기'),
                 ),
               ),
             ],
