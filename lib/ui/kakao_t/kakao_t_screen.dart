@@ -73,6 +73,7 @@ class _KakaoTScreenState extends State<KakaoTScreen> {
 
   Widget _buildAds(PageController controller) {
     return Stack(
+      alignment: Alignment.bottomCenter,
       children: [
         CarouselSlider(
           options: CarouselOptions(
@@ -90,6 +91,7 @@ class _KakaoTScreenState extends State<KakaoTScreen> {
           items: fakeAds.map((Ad e) => AdView(ad: e)).toList(),
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: fakeAds.asMap().entries.map((e) {  // map을 키와 값으로 변경함
             return Container(
               width: 12.0,
