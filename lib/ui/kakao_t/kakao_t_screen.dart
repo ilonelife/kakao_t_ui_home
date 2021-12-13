@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:kakao_t_ui_exam/data/fake_data.dart';
 import 'package:kakao_t_ui_exam/model/ad.dart';
@@ -6,8 +7,15 @@ import 'package:kakao_t_ui_exam/ui/kakao_t//widgets/ad_view.dart';
 import 'package:kakao_t_ui_exam/ui/kakao_t/detail_screen.dart';
 import 'package:kakao_t_ui_exam/ui/kakao_t/widgets/menu_widget.dart';
 
-class KakaoTScreen extends StatelessWidget {
+class KakaoTScreen extends StatefulWidget {
   const KakaoTScreen({Key key}) : super(key: key);
+
+  @override
+  State<KakaoTScreen> createState() => _KakaoTScreenState();
+}
+
+class _KakaoTScreenState extends State<KakaoTScreen> {
+  int _index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +52,16 @@ class KakaoTScreen extends StatelessWidget {
       crossAxisCount: 4,
       shrinkWrap: true,
       children: fakeMenus.map(
-        (Menu menu) {
+            (Menu menu) {
           return GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => DetailScreen(
-                  menu: menu,
-                )),
+                MaterialPageRoute(
+                    builder: (context) =>
+                        DetailScreen(
+                          menu: menu,
+                        )),
               );
             },
             child: MenuWidget(menu: menu),
@@ -62,16 +72,49 @@ class KakaoTScreen extends StatelessWidget {
   }
 
   Widget _buildAds(PageController controller) {
-    return SizedBox(
-      height: 100,
-      child: PageView(
-        /// [PageView.scrollDirection] defaults to [Axis.horizontal].
-        /// Use [Axis.vertical] to scroll vertically.
-        scrollDirection: Axis.horizontal,
-        controller: controller,
-        children: fakeAds.map((Ad e) => AdView(ad: e)).toList(),
-      ),
+    return Stack(
+      children: [
+        CarouselSlider(
+          options: CarouselOptions(
+            height: 150,
+            viewportFraction: 0.8,
+            enableInfiniteScroll: true,
+            autoPlay: true,
+            autoPlayInterval: Duration(seconds: 5),
+            onPageChanged: (index, _) {
+              setState(() {
+                _index = index;
+              });
+            }
+          ),
+          items: fakeAds.map((Ad e) => AdView(ad: e)).toList(),
+        ),
+        Row(
+          children: fakeAds.asMap().entries.map((e) {  // map을 키와 값으로 변경함
+            return Container(
+              width: 12.0,
+              height: 12.0,
+              margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: e.key == _index ? Colors.black : Colors.grey,
+              ),
+            );
+          }).toList(),
+        ),
+      ],
     );
+
+    // return SizedBox(
+    //   height: 100,
+    //   child: PageView(
+    //     /// [PageView.scrollDirection] defaults to [Axis.horizontal].
+    //     /// Use [Axis.vertical] to scroll vertically.
+    //     scrollDirection: Axis.horizontal,
+    //     controller: controller,
+    //     children: fakeAds.map((Ad e) => AdView(ad: e)).toList(),
+    //   ),
+    // );
   }
 
   Widget _buildNotice() {
@@ -79,7 +122,8 @@ class KakaoTScreen extends StatelessWidget {
       //    shrinkWrap: true,  // 스크롤이 않되고, size 가 있는 column 처러 동작
       children: List.generate(
           50,
-          (index) => ListTile(
+              (index) =>
+              ListTile(
                 leading: Icon(
                   Icons.notifications_outlined,
                 ),
