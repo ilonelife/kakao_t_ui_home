@@ -6,5 +6,5 @@ class Ad {
   final Color color;
   final String image;
 
-  Ad({this.title, this.body, this.color, this.image});
+  Ad({required this.title, required this.body, required this.color, required this.image});
 }

@@ -5,7 +5,7 @@ import 'package:kakao_t_ui_exam/ui/kakao_t/kakao_t_screen.dart';
 
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

@@ -4,7 +4,7 @@ class MenuButton extends StatelessWidget {
   final String image_url;
   final String sub_text;
 
-  const MenuButton({Key key, this.image_url, this.sub_text}) : super(key: key);
+  const MenuButton({Key? key, required this.image_url, required this.sub_text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
