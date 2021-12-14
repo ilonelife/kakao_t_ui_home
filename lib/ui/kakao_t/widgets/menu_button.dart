@@ -1,28 +1,34 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MenuButton extends StatelessWidget {
-  final String image_url;
-  final String sub_text;
+  final String imageUrl;
+  final String subText;
 
-  const MenuButton({Key? key, required this.image_url, required this.sub_text}) : super(key: key);
+  const MenuButton({Key? key, required this.imageUrl, required this.subText}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Image.network(
-            image_url,
+            imageUrl,
             width: 80,
             height: 100,
             fit: BoxFit.cover),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Text(
-          sub_text,
-          style: TextStyle(fontSize: 12),
+          subText,
+          style: const TextStyle(fontSize: 12),
         ),
       ],
     );
+  }
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('image_url', imageUrl));
   }
 }

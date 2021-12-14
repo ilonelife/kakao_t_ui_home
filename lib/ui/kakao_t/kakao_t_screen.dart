@@ -21,7 +21,7 @@ class _KakaoTScreenState extends State<KakaoTScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           '카카오 T',
           style: TextStyle(color: Colors.black),
         ),
@@ -48,7 +48,7 @@ class _KakaoTScreenState extends State<KakaoTScreen> {
   Widget _buildMenu(BuildContext context) {
     return GridView.count(
       childAspectRatio: 1 / 1.3,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       crossAxisCount: 4,
       shrinkWrap: true,
       children: fakeMenus.map(
@@ -81,7 +81,7 @@ class _KakaoTScreenState extends State<KakaoTScreen> {
             viewportFraction: 0.8,
             enableInfiniteScroll: true,
             autoPlay: true,
-            autoPlayInterval: Duration(seconds: 5),
+            autoPlayInterval: const Duration(seconds: 5),
             onPageChanged: (index, _) {
               setState(() {
                 _index = index;
@@ -96,7 +96,7 @@ class _KakaoTScreenState extends State<KakaoTScreen> {
             return Container(
               width: 12.0,
               height: 12.0,
-              margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+              margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: e.key == _index ? Colors.black : Colors.grey,
@@ -126,11 +126,11 @@ class _KakaoTScreenState extends State<KakaoTScreen> {
           50,
               (index) =>
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.notifications_outlined,
                 ),
                 title: Text('공지 $index'),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.navigate_next_outlined,
                 ),
               )),

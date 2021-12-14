@@ -5,7 +5,7 @@ import 'package:kakao_t_ui_exam/ui/kakao_t/kakao_t_screen.dart';
 
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -13,9 +13,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
     final _screens = [
-      KakaoTScreen(),
-      CounterScreen(),
-      BmiCalcHomeScreen(),
+      const KakaoTScreen(),
+      const CounterScreen(),
+      const BmiCalcHomeScreen(),
     ];
 
     int _index = 0;
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
               _index = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Kakao T',

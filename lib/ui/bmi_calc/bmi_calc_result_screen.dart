@@ -4,7 +4,7 @@ class BmiResultScreen extends StatelessWidget {
   final double height;
   final double weight;
 
-  BmiResultScreen(this.height, this.weight); 
+  const BmiResultScreen(this.height, this.weight, {Key? key}): super (key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class BmiResultScreen extends StatelessWidget {
     
     return Scaffold(
       appBar: AppBar(
-        title: Text('결과'),
+        title: const Text('결과'),
       ),
       body: Center(
           child: Column(
@@ -20,9 +20,9 @@ class BmiResultScreen extends StatelessWidget {
         children: [
           Text(
             _calculate(bmi),
-            style: TextStyle(fontSize: 40),
+            style: const TextStyle(fontSize: 40),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           _sketchIcon(bmi),
@@ -50,19 +50,19 @@ class BmiResultScreen extends StatelessWidget {
 
   Widget _sketchIcon(double bmi) {
     if (bmi > 23) {
-      return Icon(
+      return const Icon(
         Icons.sentiment_very_dissatisfied,
         size: 100,
         color: Colors.red,
       );
     } else if (bmi > 18.5) {
-      return Icon(
+      return const Icon(
         Icons.sentiment_neutral,
         size: 100,
         color: Colors.lightGreen,
       );
     } else {
-      return Icon(
+      return const Icon(
         Icons.sentiment_very_satisfied,
         size: 100,
         color: Colors.amber,

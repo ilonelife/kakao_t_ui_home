@@ -17,10 +17,10 @@ class MenuWidget extends StatelessWidget {
               child: Image.network(menu.imageUrl,
                   width: 70, height: 60, fit: BoxFit.cover),
             ),
-            if (menu.isFavorite) Positioned(
+            if (menu.isFavorite) const Positioned(
                 right: 0, bottom: 5,
                 child: Icon(Icons.star_outlined, color: Colors.yellow,)),
-            if (!menu.isFavorite) Positioned(
+            if (!menu.isFavorite) const Positioned(
                 right: 0, bottom: 5,
                 child: Icon(Icons.star_outlined, color: Colors.redAccent,)),
           ],
@@ -30,7 +30,7 @@ class MenuWidget extends StatelessWidget {
         // ),
         Text(
           menu.title,
-          style: TextStyle(fontSize: 10),
+          style: const TextStyle(fontSize: 10),
         ),
       ],
     );
